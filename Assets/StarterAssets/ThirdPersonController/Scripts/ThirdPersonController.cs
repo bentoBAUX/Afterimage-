@@ -35,6 +35,7 @@ namespace StarterAssets
         public float DodgeSpeed = 5f;
 
         public float DodgeCooldown = 0.5f;
+        public IFrame iFrame;
 
         [Space(10)] [Tooltip("The height the player can jump")]
         public float JumpHeight = 1.2f;
@@ -115,6 +116,8 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
+
+        public SkinnedMeshRenderer playerMeshRenderer;
 
         private const float _threshold = 0.01f;
 
@@ -368,6 +371,8 @@ namespace StarterAssets
 
                 _verticalVelocity = -2f;
 
+                iFrame.CreateGhost();
+
                 if (_hasAnimator)
                 {
                     _animator.SetBool(_animIDDodge, true);
@@ -385,6 +390,7 @@ namespace StarterAssets
                         dodgeDirection = transform.forward;
                     }
                     // SetDodgeAnimation(dodgeDirection);
+
                     _controller.Move(dodgeDirection * DodgeSpeed * Time.deltaTime);
                 }
                 else
@@ -405,9 +411,8 @@ namespace StarterAssets
             }
 
             _input.dodge = false;
-
-
         }
+
 
         private void SetDodgeAnimation(Vector3 dodgeDirection)
         {
