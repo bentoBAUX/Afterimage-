@@ -5,7 +5,6 @@ using UnityEngine;
 public class IFrame : MonoBehaviour
 {
     public SkinnedMeshRenderer skinnedMeshRenderer;
-    public Material ghostMaterial;
     public float ghostLifeTime = 0.5f;
     public float fadeSpeed = 1f;
 

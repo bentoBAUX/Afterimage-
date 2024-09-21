@@ -389,7 +389,7 @@ namespace StarterAssets
                     {
                         dodgeDirection = transform.forward;
                     }
-                    // SetDodgeAnimation(dodgeDirection);
+                    //SetDodgeAnimation(dodgeDirection);
 
                     _controller.Move(dodgeDirection * DodgeSpeed * Time.deltaTime);
                 }
